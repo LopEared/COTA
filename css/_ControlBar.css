@@ -1,0 +1,87 @@
+/*Determine style of control bar include content*/
+/*Define style of schedule box*/
+#ShiftSchedule_Box{
+	position:absolute;
+	background:transparent;
+	margin:0px;
+	border:0px;
+	bottom:0.3%;
+	left:0.75%;
+	height:45%;
+	width:98.5%;
+}
+/*Define style of scene control bar*/
+#Scene_Control{
+	background: lightgrey;
+	position: absolute;
+	width: 97.15%;
+	height: 53.5%;
+	left: 0.75%;
+	top: 0.27%;
+	border: 2px solid lightgrey;
+	border-radius:3px;
+}
+
+
+/* Define style of tabs*/
+.tablink {
+	background-color: #555;
+	color: white;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 2px 2px;
+	font-size: 0.8vw;
+	width: 50%;
+	border-radius: 10px 10px 0 0;
+	height:6%;
+}
+
+.tablink:hover {
+	background-color: #777;
+}
+
+.tabcontent {
+	position:absolute;
+	color: white;
+	display: none;
+	padding: 0px 0px;
+	width:100%;
+	height:94%;
+	bottom:0%;
+	left:0%;
+	border-radius:0 0 6px 6px;
+}
+
+#ShiftStaff_tab{
+	background-color: red;
+}
+#NextShiftStaff_tab{
+	background-color: green;
+}
+
+/* Define style of ShiftStaff_tab*/
+#Staff_Table_Box{
+	position:relative;
+	background:transparent;
+	margin:auto;
+	top:1.5%;
+	left:0%;
+	height:40%;
+	width:99%;
+}
+
+#Staff_Table{
+	border: 2px solid white;
+	height:100%;
+	width:100%;
+	border-collapse: collapse;
+	text-align: center;
+	font-size: 1.8vh;
+}
+
+#Staff_Table td{
+	border: 2px solid white;
+}
+

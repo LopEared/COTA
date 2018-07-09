@@ -1,0 +1,41 @@
+#WatchBox{
+position:absolute;
+background:trnasparent;
+margin:auto;
+top:5%;
+left:0.15%;
+height:90%;
+width:21%;
+}
+
+#watch_table{
+font: bold 1vw sans-serif;
+color:  #00ff00;
+top:0%;
+left:0%;
+height:100%;
+width:90%;
+}
+
+/*Style for watch from scene*/
+#WatchBoxScene{
+position:absolute;
+background:transparent;
+margin:auto;
+top:3%;
+left:50%;
+height:5%;
+width:21%;
+transform:translate(-50%,-50%);
+visibility: hidden;
+z-index: 1;
+}
+
+#watch_table_scene{
+font: bold 1.1vw sans-serif;
+color:  #00ff00;
+top:0%;
+left:0%;
+height:100%;
+width:105%;
+}

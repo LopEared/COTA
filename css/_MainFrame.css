@@ -1,0 +1,84 @@
+html,body{
+padding: 0px;
+margin: 1px;
+background: lightgrey;
+height: 100%;
+overflow: hidden;
+}
+
+header{
+position:relative;
+background: RoyalBlue;
+height: 8.5%;
+border-radius: 5px;
+text-align: center;
+font-size: 2vw;
+color: Gainsboro;
+font-family:Courier New;
+background-image: url("../img/logo_big.png") ; /* Путь к фоновому изображению */
+background-color: RoyalBlue; /* Цвет фона */
+background-size: auto 85%;
+background-position:right center;
+background-repeat: no-repeat;
+vertical-align: middle;
+display: flex;
+align-items: center;
+justify-content: center; 
+}
+
+nav{
+position:relative;
+background: DodgerBlue;
+border-radius: 5px;
+height: 6.5%;
+margin: 2px 0px 2px 0px;
+font-size: 1vw;
+}
+
+main{
+position:relative;
+background: gainsboro;
+border-radius: 5px;
+height: 77%;
+width: 100%;
+display: flex;
+flex-direction: row;
+margin: 0px;
+}
+
+#Control_Bar{
+position:relative;
+background: RoyalBlue;
+float: left;
+width: 13%;
+border-radius: 5px;
+margin: 0px;
+font-size: 1vw;
+}
+
+#CanvasFrame{
+position:relative;
+background: LawnGreen;
+width: 74%;
+border-radius: 5px;
+margin: 0px 2px 0px 2px;
+position:relative;
+}
+
+#Information_Bar{
+position:relative;
+background: RoyalBlue;
+float: right;
+width: 13%;
+border-radius: 5px;
+margin: 0px;
+font-size: 1vw;
+}
+
+footer{
+background: RoyalBlue;
+height: 7% ;
+border-radius: 5px;
+margin: 2px 0px 0px 0px;
+font-size: 1vw;
+}

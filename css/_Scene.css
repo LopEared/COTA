@@ -1,0 +1,97 @@
+canvas{
+	width: 100%;
+	height: 100%;
+	border-radius: 5px;
+}
+
+#ButtonsBar{
+	top: 4px;
+	right: 4px;
+	position: absolute;
+	background: transparent;
+	width:2.5%;
+	height:15%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+}
+
+.SceneButton{
+	position: relative;
+	background: transparent;
+	width:100%;
+	height:100%;
+	border-color: transparent;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain; /* Растягиваем фоновую картинку на весь элемент */
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	border-radius: 10px;
+}
+
+.SceneButton:hover{
+	background: green;
+	width:100%;
+	height:100%;
+	border-color: transparent;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain; /* Растягиваем фоновую картинку на весь элемент */
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	border-radius: 5px;
+}
+
+#Maximize{
+	background-image: url("../img/button/maximize_3.png") ; /* Путь к фоновому изображению */
+}
+#StartView{
+	background-image: url("../img/button/StartView_4.png") ; /* Путь к фоновому изображению */
+}
+#FullDisplay{
+	background-image: url("../img/button/maximize_5.png") ; /* Путь к фоновому изображению */
+}
+
+#Scale_container{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+#Frame_LoadBar{
+	background: white;
+	position: absolute;
+	background-image: url("../img/Cartoon.jpg") ; /* Путь к фоновому изображению */
+	background-size: 100% 100%; /* Растягиваем фоновую картинку на весь элемент */
+	background-repeat: no-repeat;
+	width: 87%;
+	height: 86%;
+	left: 50%;
+	top: 50%;
+	transform:translate(-50%,-50%);
+	border: 4px solid black;
+	border-radius:7px;
+	visibility: visible; 
+	z-index: 2;
+}
+
+#Fast_Target_Inform{
+	background: transparent;
+	position: absolute;
+	width: 27%;
+	height: 33%;
+	left: 5px;
+	top: 5px;
+	border: 1px solid white;
+	font: bold 1vw sans-serif;
+	color:  #00ff00;
+}
+

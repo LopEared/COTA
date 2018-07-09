@@ -1,0 +1,43 @@
+/* Контейнер таблицы со счетчиком дней в правой части*/
+#FlyDayBox{
+position:absolute;
+background:transparent;
+margin:auto;
+top:5%;
+right:0.15%;
+height:90%;
+width:13%;
+text-align: center;
+vertical-align: middle;
+font: bold 1.4vw sans-serif;
+color:  #00ff00;
+display: flex;
+align-items: center;
+justify-content: center; 
+}
+
+/* Таблица со счетчиком дней в правой части*/
+#FlyDayTable{
+font: bold 1vw sans-serif;
+color:  #00ff00;
+top:0%;
+left:0%;
+height:100%;
+width:100%;
+}
+
+/* Контейнер вывода текущих событий смены по центру экрана над сценой*/
+#ShiftScheduleEvent{
+position:absolute;
+background:lightgrey;
+margin:auto;
+transform:translate(-50%,-50%);
+top:50%;
+left:50%;
+height:90%;
+width:50%;
+text-align: center;
+vertical-align: middle;
+font: bold 1.4vw sans-serif;
+color:grey;
+}
