@@ -6,6 +6,7 @@ scene.background = new THREE.Color(0x3333ff); // Scene color
 // MakeCamera
 var camera = new THREE.PerspectiveCamera(75, CanvasFrame.clientWidth/CanvasFrame.clientHeight, 0.1, 150000);
 camera.position.set(-55000, 3500, 0 ); // Set camera position
+scene.add(camera);
 // Make Render
 var renderer = new THREE.WebGLRenderer( { canvas: Scene3D, antialias: true } );
 // Add controls
@@ -20,7 +21,7 @@ var light = new THREE.AmbientLight( 0x404040 , 1.5); // soft white light
 scene.add( light );
 //-------------------------------------------------------------------------------------------------------------------------------------------- 
 // Add Spot Light
-var spotLight = new THREE.SpotLight( 0xffffff );
+/*var spotLight = new THREE.SpotLight( 0xffffff );
 spotLight.position.set( -45000, 0, 0 );
 spotLight.castShadow = true;
 spotLight.shadow.mapSize.width = 1024;
@@ -30,7 +31,16 @@ spotLight.shadow.camera.far = 4000;
 spotLight.shadow.camera.fov = 30;
 
 scene.add( spotLight );
+*/
+
 //--------------------------------------------------------------------------------------------------------------------------------------------
+// Add Direct Light
+var directionalLight = new THREE.DirectionalLight( 0xffeedd );
+camera.add(directionalLight);
+
+//--------------------------------------------------------------------------------------------------------------------------------------------
+
+
 // Add RayCaster Part
 // Add RayCaster variables
 var raycaster = new THREE.Raycaster();

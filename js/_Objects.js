@@ -53,7 +53,7 @@
 	sat.position.set(0, 0, 0);
 	sat.scale.set(1, 1, 1);
 	sat.rotation.x = Math.PI / 2 ;
-	sat.rotation.z = -Math.PI / 2 ;	
+	//sat.rotation.z = Math.PI / 2 ;	
 	sat.rotation.y = Math.PI / 2 ;	
 	scene.add(sat);
 	Frame_LoadBar.style.visibility="hidden"; // Turn off progress bar after loading model
