@@ -29,7 +29,6 @@ spotLight.shadow.mapSize.height = 1024;
 spotLight.shadow.camera.near = 500;
 spotLight.shadow.camera.far = 4000;
 spotLight.shadow.camera.fov = 30;
-
 scene.add( spotLight );
 */
 
@@ -37,7 +36,6 @@ scene.add( spotLight );
 // Add Direct Light
 var directionalLight = new THREE.DirectionalLight( 0xffeedd );
 camera.add(directionalLight);
-
 //--------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -45,7 +43,7 @@ camera.add(directionalLight);
 // Add RayCaster variables
 var raycaster = new THREE.Raycaster();
 var mouse = new THREE.Vector2();
-var intersects;
+var intersects, INTERSECTED;
 // Add RayCaster function
 function onMouseMove( event ) {
 	mouse.x = ( event.offsetX / Scene3D.clientWidth ) * 2 - 1;				// calculate mouse position in normalized device coordinates
@@ -74,12 +72,29 @@ function animate() {
 	// Check intersections scene.children objects	
 	if ( intersects.length > 0 ) {
            	document.body.style.cursor = 'pointer';
+			//intersects[0].object.position.z+=100;
 			//intersects[ 0 ].object.visible = false;
-			console.log(intersects[ 0 ].object);
+			//console.log(intersects[ 0 ].object);
 			Fast_Target_Inform.innerHTML = "/n Hello,world!";
 			Fast_Target_Inform.innerHTML = intersects[0].object.name;
+			
+			if (INTERSECTED != intersects[0].object) {
+            if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
+             
+            INTERSECTED = intersects[0].object;
+            INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
+            INTERSECTED.material.emissive.setHex(0xff0000);
+				}
         }
-	else	document.body.style.cursor = 'auto';
+	else	{
+			
+			document.body.style.cursor = 'auto';
+			if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
+			INTERSECTED = null;
+		
+		}
+		
+		
 	//----------------------------------------------------------------------------------------------------------------------------------------
 	resizeCanvasToDisplaySize();
 	requestAnimationFrame(animate);
