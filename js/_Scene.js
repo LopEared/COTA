@@ -68,9 +68,55 @@ function animate() {
 	//----------------------------------------------------------------------------------------------------------------------------------------
 	raycaster.setFromCamera( mouse, camera );								// update the picking ray with the camera and mouse position
 	intersects = raycaster.intersectObjects( scene.children, true );	// calculate objects intersecting the picking ray
+	
+		 if (intersects.length > 0) {
+
+
+        if (INTERSECTED != intersects[0].object) {
+
+            if (INTERSECTED){
+            	material = INTERSECTED.material;
+	        	if(material.emissive){
+	                material.emissive.setHex(INTERSECTED.currentHex);
+	            }
+	            else{
+	            	material.color.setHex(INTERSECTED.currentHex);
+	            }
+	        }	
+            INTERSECTED = intersects[0].object;
+            material = INTERSECTED.material;
+            if(material.emissive){
+	         	INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
+	            material.emissive.setHex(0xff0000);
+	        }
+	        else{
+	         	INTERSECTED.currentHex = material.color.getHex();
+	            material.color.setHex(0xff0000);
+	        }
+
+            console.log(INTERSECTED.position);
+        }
+
+    } else {
+
+        if (INTERSECTED){
+        	material = INTERSECTED.material;
+
+        	if(material.emissive){
+            	material.emissive.setHex(INTERSECTED.currentHex);
+        	}
+        	else
+        	{
+        		material.color.setHex(INTERSECTED.currentHex);
+        	}
+        }
+
+        INTERSECTED = null;
+
+    }
 		
 	// Check intersections scene.children objects	
-	if ( intersects.length > 0 ) {
+	/*if ( intersects.length > 0 ) {
            	document.body.style.cursor = 'pointer';
 			//intersects[0].object.position.z+=100;
 			//intersects[ 0 ].object.visible = false;
@@ -93,7 +139,7 @@ function animate() {
 			INTERSECTED = null;
 		
 		}
-		
+		*/
 		
 	//----------------------------------------------------------------------------------------------------------------------------------------
 	resizeCanvasToDisplaySize();
