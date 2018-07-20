@@ -20,24 +20,12 @@ Scale_container.appendChild(stats.domElement);
 var light = new THREE.AmbientLight( 0x404040 , 1.5); // soft white light
 scene.add( light );
 //-------------------------------------------------------------------------------------------------------------------------------------------- 
-// Add Spot Light
-/*var spotLight = new THREE.SpotLight( 0xffffff );
-spotLight.position.set( -45000, 0, 0 );
-spotLight.castShadow = true;
-spotLight.shadow.mapSize.width = 1024;
-spotLight.shadow.mapSize.height = 1024;
-spotLight.shadow.camera.near = 500;
-spotLight.shadow.camera.far = 4000;
-spotLight.shadow.camera.fov = 30;
-scene.add( spotLight );
-*/
 
 //--------------------------------------------------------------------------------------------------------------------------------------------
 // Add Direct Light
 var directionalLight = new THREE.DirectionalLight( 0xffeedd );
-camera.add(directionalLight);
+camera.add(directionalLight);		// Fix direction ligth from camera to objectsd
 //--------------------------------------------------------------------------------------------------------------------------------------------
-
 
 // Add RayCaster Part
 // Add RayCaster variables
@@ -67,13 +55,12 @@ function animate() {
 	// Part of RayCaster
 	//----------------------------------------------------------------------------------------------------------------------------------------
 	raycaster.setFromCamera( mouse, camera );								// update the picking ray with the camera and mouse position
-	intersects = raycaster.intersectObjects( scene.children, true );	// calculate objects intersecting the picking ray
+	intersects = raycaster.intersectObjects( scene.children, true );		// calculate objects intersecting the picking ray
 	
-		 if (intersects.length > 0) {
-
-
+	if (intersects.length > 0) {											// Check intersections scene.children objects	
+		document.body.style.cursor = 'pointer';								// Change style pointer cursor hover on the mesh/object
+		Fast_Target_Inform.innerHTML = intersects[0].object.name;			// Write down to id="Fast_Target_Inform"  name object
         if (INTERSECTED != intersects[0].object) {
-
             if (INTERSECTED){
             	material = INTERSECTED.material;
 	        	if(material.emissive){
@@ -93,28 +80,24 @@ function animate() {
 	         	INTERSECTED.currentHex = material.color.getHex();
 	            material.color.setHex(0xff0000);
 	        }
-
             console.log(INTERSECTED.position);
         }
-
-    } else {
-
+    } 
+	else {
         if (INTERSECTED){
         	material = INTERSECTED.material;
-
-        	if(material.emissive){
+			if(material.emissive){
             	material.emissive.setHex(INTERSECTED.currentHex);
         	}
-        	else
-        	{
+        	else{
         		material.color.setHex(INTERSECTED.currentHex);
         	}
         }
-
         INTERSECTED = null;
+		document.body.style.cursor = 'auto';								// Change style pointer cursor not hover on the mesh/object to standart view
+	}
 
-    }
-		
+	// Delete this part after edit
 	// Check intersections scene.children objects	
 	/*if ( intersects.length > 0 ) {
            	document.body.style.cursor = 'pointer';
