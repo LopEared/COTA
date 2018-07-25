@@ -32,7 +32,7 @@ camera.add(directionalLight);		// Fix direction ligth from camera to objectsd
 // Add RayCaster variables
 var raycaster = new THREE.Raycaster();
 var mouse = new THREE.Vector2();
-var intersects, INTERSECTED, newItem, textnode;
+var intersects, INTERSECTED, newItem, textNode=0;
 // Add RayCaster function
 function onMouseMove( event ) {
 	mouse.x = ( event.offsetX / Scene3D.clientWidth ) * 2 - 1;				// calculate mouse position in normalized device coordinates
@@ -119,30 +119,13 @@ function resizeCanvasToDisplaySize(force) {
 }
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //Append my personal functions
-
 function write_fastdata(a,b) {
-	if (a.childNodes.length >= 5) {
-		a.removeChild(a.childNodes[4]);
+	if (a.childNodes.length >= 6) {
+		a.removeChild(a.childNodes[5]);
 		}
-	
-	newItem = document.createElement("LI");
-	textNode = document.createTextNode(b);
-	console.log(textNode);
-	console.log(b);
-	newItem.appendChild(textNode);
-	a.insertBefore(newItem, a.childNodes[0]);
-}
-
-
-/*
-function write_fastdata(a,b) {
-	if (a.childNodes.length >= 5) {
-		a.removeChild(a.childNodes[4]);
-		}
-	if (textNode != b){
+	if (textNode.textContent != b){
 		newItem = document.createElement("LI");
 		textNode = document.createTextNode(b);
-		//console.log(textNode);
 		newItem.appendChild(textNode);
 		a.insertBefore(newItem, a.childNodes[0]);
 		}
@@ -150,7 +133,6 @@ function write_fastdata(a,b) {
 
 
 
-*/
 
 
 

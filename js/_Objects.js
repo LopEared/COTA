@@ -5,13 +5,11 @@
 	ground.position.set(0, -15000, 0);
 	ground.rotation.x = -Math.PI / 2;
 	scene.add(ground);
-//	Add Eartg (SphereGeometry)
-	var geometry = new THREE.SphereGeometry( 7000, 32, 32 );
-	var material = new THREE.MeshBasicMaterial( {color: 0xffff00} );
-	var sphere = new THREE.Mesh( geometry, material );
-	sphere.position.set(35000, 0, 0);
-	sphere.receiveShadow = true;
-	scene.add( sphere );	
+//	Add Earth (SphereGeometry)
+	var Earth = new THREE.Mesh(new THREE.SphereGeometry( 7000, 32, 32 ), new THREE.MeshBasicMaterial( {color: 0xffff00,side: THREE.DoubleSide} ));
+	Earth.position.set(35000, 0, 0);
+	Earth.receiveShadow = true;
+	scene.add( Earth );	
 //	Add Cube just for fun Cube
 	var geometry = new THREE.BoxGeometry( 3000, 3000, 3000 );
 	var material = new THREE.MeshBasicMaterial( { color: 0xcc0066 } );
