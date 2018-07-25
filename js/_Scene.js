@@ -58,7 +58,7 @@ function animate() {
 	intersects = raycaster.intersectObjects( scene.children, true );		// calculate objects intersecting the picking ray
 	if (intersects.length > 0) {											// Check intersections scene.children objects	
 		document.body.style.cursor = 'pointer';								// Change style pointer cursor hover on the mesh/object
-		write_fastdata(Fast_Target_Inform,intersects[0].object.name);
+		write_fastdata(Fast_Target_Inform, intersects[0].object.name);
 		if (INTERSECTED != intersects[0].object) {
             if (INTERSECTED){
             	material = INTERSECTED.material;
@@ -119,11 +119,10 @@ function resizeCanvasToDisplaySize(force) {
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //Append my personal functions
 function write_fastdata(a,b) {
-	/*if (a.length >= 6) {
+	if (a.length >= 6) {
 		//var list = document.getElementById("myList");
-		a.removeChild(a.childNodes[6]);
+		a.removeChild(a.childNodes[4]);
 	}
-	*/
 	newItem = document.createElement("LI");
 	textnode = document.createTextNode(b);
 	newItem.appendChild(textnode);
