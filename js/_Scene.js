@@ -2,16 +2,16 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------
 // Make Scene
 var scene = new THREE.Scene(); // Make scene
-scene.background = new THREE.Color(0x3333ff); // Scene color
+scene.background = new THREE.Color(0x3333ff); 		// Scene color
 // MakeCamera
 var camera = new THREE.PerspectiveCamera(75, CanvasFrame.clientWidth/CanvasFrame.clientHeight, 0.1, 150000);
-camera.position.set(0, 30000, -75000 ); // Set camera position
-scene.add(camera);
+camera.position.set(0, 30000, -75000 );				// Set camera position
+scene.add(camera);									// Append camerea to scene
 // Make Render
 var renderer = new THREE.WebGLRenderer( { canvas: Scene3D, antialias: true } );
 // Add controls
 var controls = new THREE.OrbitControls(camera, renderer.domElement);
-controls.maxDistance = 95000;
+controls.maxDistance = 95000;						// Assign the upper limit of zooming 
 // Add Stats frame into Scale_container (if stats add to CanvasFrame - after scaling stats vanish from scene)
 var stats = new Stats();
 stats.domElement.style.cssText = 'position:absolute;bottom:4px;right:4px;';
