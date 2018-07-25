@@ -32,7 +32,7 @@ camera.add(directionalLight);		// Fix direction ligth from camera to objectsd
 // Add RayCaster variables
 var raycaster = new THREE.Raycaster();
 var mouse = new THREE.Vector2();
-var intersects, INTERSECTED, newItem, textNode=0;
+var intersects, INTERSECTED, newItem, textNode=0, bufferColor;
 // Add RayCaster function
 function onMouseMove( event ) {
 	mouse.x = ( event.offsetX / Scene3D.clientWidth ) * 2 - 1;				// calculate mouse position in normalized device coordinates
@@ -43,10 +43,13 @@ function DelMesh( event ) {
 	console.log("Привет! Тут был двойной клик")
 }
 function PaintMesh( event ) {
+	bufferColor = intersects[ 0 ].object.material.color.getHex();
+	//console.log(bufferColor);
 	intersects[ 0 ].object.material.color.setHex( 0xff3333 );
 	console.log("Привет! Тут был клик");
 }
 function ReturnMeshColor( event ) {
+	intersects[ 0 ].object.material.color.setHex( bufferColor );
 	console.log("Привет! Тут был клик правой кнопкой");
 }
 Scene3D.addEventListener( 'mousemove', onMouseMove, false );				// Part of RayCaster: Check mouse move
@@ -124,14 +127,14 @@ function resizeCanvasToDisplaySize(force) {
 //Append my personal functions
 //Function fo fast data log at right upper corner of scene
 function write_fastdata(a,b) {
-	if (a.childNodes.length >= 6) {
-		a.removeChild(a.childNodes[5]);
-		}
 	if (textNode.textContent != b){
 		newItem = document.createElement("LI");
 		textNode = document.createTextNode(b);
 		newItem.appendChild(textNode);
 		a.insertBefore(newItem, a.childNodes[0]);
+		}
+	if (a.childNodes.length >= 6) {
+		a.removeChild(a.childNodes[5]);
 		}
 }
 
