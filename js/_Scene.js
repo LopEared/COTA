@@ -120,8 +120,7 @@ function resizeCanvasToDisplaySize(force) {
 //Append my personal functions
 function write_fastdata(a,b) {
 	if (a.length >= 6) {
-		//var list = document.getElementById("myList");
-		a.removeChild(a.childNodes[4]);
+		a.removeChild(a.childNodes[5]);
 	}
 	newItem = document.createElement("LI");
 	textnode = document.createTextNode(b);
