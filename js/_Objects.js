@@ -38,7 +38,8 @@
 			
 	// Prepare loader and load the model
 	var oLoader = new THREE.OBJLoader();
-	oLoader.load('http://127.0.0.1:8887/models/MotorCycle.obj', function(object, materials) {
+//	oLoader.load('http://127.0.0.1:8887/models/MotorCycle.obj', function(object, materials) {
+	oLoader.load('https://rawgit.com/LopEared/COTA/master/models/MotorCycle.obj', function(object, materials) {
 		object.traverse( function(child) {
 			if (child instanceof THREE.Mesh) {
 			  // apply custom material for each meshes in our model
