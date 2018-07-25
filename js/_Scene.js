@@ -5,12 +5,13 @@ var scene = new THREE.Scene(); // Make scene
 scene.background = new THREE.Color(0x3333ff); // Scene color
 // MakeCamera
 var camera = new THREE.PerspectiveCamera(75, CanvasFrame.clientWidth/CanvasFrame.clientHeight, 0.1, 150000);
-camera.position.set(-55000, 3500, 0 ); // Set camera position
+camera.position.set(0, 30000, -75000 ); // Set camera position
 scene.add(camera);
 // Make Render
 var renderer = new THREE.WebGLRenderer( { canvas: Scene3D, antialias: true } );
 // Add controls
 var controls = new THREE.OrbitControls(camera, renderer.domElement);
+controls.maxDistance = 95000;
 // Add Stats frame into Scale_container (if stats add to CanvasFrame - after scaling stats vanish from scene)
 var stats = new Stats();
 stats.domElement.style.cssText = 'position:absolute;bottom:4px;right:4px;';
@@ -119,10 +120,10 @@ function resizeCanvasToDisplaySize(force) {
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //Append my personal functions
 function write_fastdata(a,b) {
-	if (a.length >= 3) {
-		console.log(a.length);
+	if (Fast_Target_Inform.length >= 3) {
+		console.log(Fast_Target_Inform.length);
 		console.log("БЛЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯТЬ!!!");
-		a.removeChild(a.childNodes[2]);
+		Fast_Target_Inform.removeChild(Fast_Target_Inform.childNodes[2]);
 	}
 	newItem = document.createElement("LI");
 	textnode = document.createTextNode(b);

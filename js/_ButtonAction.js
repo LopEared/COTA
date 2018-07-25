@@ -22,7 +22,7 @@ function MaxScreen() {
 // Function of button scene Default Position
 function DefaultPosition() {
 // sat.rotation.x = sat.rotation.x - Math.PI / 4 ;	
-camera.position.set( -65000, 3500, 0 );
+//camera.position.set( 0, 4500, -75000 );  // this code is nit necsessary here
 controls.update();
 controls.reset();
 }
