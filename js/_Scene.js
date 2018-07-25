@@ -119,9 +119,9 @@ function resizeCanvasToDisplaySize(force) {
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //Append my personal functions
 function write_fastdata(a,b) {
-	/*if (intersects.length >= 6) {
+	/*if (a.length >= 6) {
 		//var list = document.getElementById("myList");
-		Fast_Target_Inform.removeChild(Fast_Target_Inform.childNodes[6]);
+		a.removeChild(a.childNodes[6]);
 	}
 	*/
 	newItem = document.createElement("LI");
