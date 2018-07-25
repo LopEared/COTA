@@ -79,7 +79,7 @@ function animate() {
 	         	INTERSECTED.currentHex = material.color.getHex();
 	            material.color.setHex(0xff0000);
 	        }
-            //console.log(INTERSECTED.position);
+            console.log(INTERSECTED.position);
 			console.log(intersects[0].object);
         }
     } 
@@ -119,8 +119,10 @@ function resizeCanvasToDisplaySize(force) {
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //Append my personal functions
 function write_fastdata(a,b) {
-	if (a.length >= 6) {
-		a.removeChild(a.childNodes[5]);
+	if (a.length >= 3) {
+		console.log(a.length);
+		console.log("БЛЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯТЬ!!!");
+		a.removeChild(a.childNodes[2]);
 	}
 	newItem = document.createElement("LI");
 	textnode = document.createTextNode(b);
