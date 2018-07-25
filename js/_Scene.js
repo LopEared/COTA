@@ -31,7 +31,7 @@ camera.add(directionalLight);		// Fix direction ligth from camera to objectsd
 // Add RayCaster variables
 var raycaster = new THREE.Raycaster();
 var mouse = new THREE.Vector2();
-var intersects, INTERSECTED;
+var intersects, INTERSECTED, newItem, textnode;
 // Add RayCaster function
 function onMouseMove( event ) {
 	mouse.x = ( event.offsetX / Scene3D.clientWidth ) * 2 - 1;				// calculate mouse position in normalized device coordinates
@@ -56,11 +56,10 @@ function animate() {
 	//----------------------------------------------------------------------------------------------------------------------------------------
 	raycaster.setFromCamera( mouse, camera );								// update the picking ray with the camera and mouse position
 	intersects = raycaster.intersectObjects( scene.children, true );		// calculate objects intersecting the picking ray
-	
 	if (intersects.length > 0) {											// Check intersections scene.children objects	
 		document.body.style.cursor = 'pointer';								// Change style pointer cursor hover on the mesh/object
-		Fast_Target_Inform.innerHTML = intersects[0].object.name;			// Write down to id="Fast_Target_Inform"  name object
-        if (INTERSECTED != intersects[0].object) {
+		write_fastdata(Fast_Target_Inform,intersects[0].object.name);
+		if (INTERSECTED != intersects[0].object) {
             if (INTERSECTED){
             	material = INTERSECTED.material;
 	        	if(material.emissive){
@@ -80,7 +79,8 @@ function animate() {
 	         	INTERSECTED.currentHex = material.color.getHex();
 	            material.color.setHex(0xff0000);
 	        }
-            console.log(INTERSECTED.position);
+            //console.log(INTERSECTED.position);
+			console.log(intersects[0].object);
         }
     } 
 	else {
@@ -96,34 +96,7 @@ function animate() {
         INTERSECTED = null;
 		document.body.style.cursor = 'auto';								// Change style pointer cursor not hover on the mesh/object to standart view
 	}
-
-	// Delete this part after edit
-	// Check intersections scene.children objects	
-	/*if ( intersects.length > 0 ) {
-           	document.body.style.cursor = 'pointer';
-			//intersects[0].object.position.z+=100;
-			//intersects[ 0 ].object.visible = false;
-			//console.log(intersects[ 0 ].object);
-			Fast_Target_Inform.innerHTML = "/n Hello,world!";
-			Fast_Target_Inform.innerHTML = intersects[0].object.name;
-			
-			if (INTERSECTED != intersects[0].object) {
-            if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
-             
-            INTERSECTED = intersects[0].object;
-            INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
-            INTERSECTED.material.emissive.setHex(0xff0000);
-				}
-        }
-	else	{
-			
-			document.body.style.cursor = 'auto';
-			if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
-			INTERSECTED = null;
-		
-		}
-		*/
-		
+	
 	//----------------------------------------------------------------------------------------------------------------------------------------
 	resizeCanvasToDisplaySize();
 	requestAnimationFrame(animate);
@@ -142,4 +115,17 @@ function resizeCanvasToDisplaySize(force) {
 	camera.updateProjectionMatrix();
 	// set render target sizes here
 	}
+}
+//--------------------------------------------------------------------------------------------------------------------------------------------
+//Append my personal functions
+function write_fastdata(a,b) {
+	/*if (intersects.length >= 6) {
+		//var list = document.getElementById("myList");
+		Fast_Target_Inform.removeChild(Fast_Target_Inform.childNodes[6]);
+	}
+	*/
+	newItem = document.createElement("LI");
+	textnode = document.createTextNode(b);
+	newItem.appendChild(textnode);
+	a.insertBefore(newItem, a.childNodes[0]);
 }
