@@ -86,12 +86,12 @@ canvas{
 #Fast_Target_Inform{
 	background: transparent;
 	position: absolute;
-	width: 27%;
-	height: 33%;
+	width: 18%;
+	height: 18%;
 	left: 5px;
 	top: 5px;
-	border: 1px solid white;
-	font: bold 1vw sans-serif;
+	border: 1px transparent;
+	font: bold 0.85vw sans-serif;
 	color:  #00ff00;
 }
 

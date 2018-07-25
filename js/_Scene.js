@@ -121,12 +121,63 @@ function resizeCanvasToDisplaySize(force) {
 //Append my personal functions
 
 function write_fastdata(a,b) {
-	console.log(a);
-	if (a.length >= 20) {
-		a.removeChild(a.childNodes[19]);
+	if (a.childNodes.length >= 5) {
+		a.removeChild(a.childNodes[4]);
 		}
+	
 	newItem = document.createElement("LI");
 	textNode = document.createTextNode(b);
+	console.log(textNode);
+	console.log(b);
 	newItem.appendChild(textNode);
 	a.insertBefore(newItem, a.childNodes[0]);
 }
+
+
+/*
+function write_fastdata(a,b) {
+	if (a.childNodes.length >= 5) {
+		a.removeChild(a.childNodes[4]);
+		}
+	if (textNode != b){
+		newItem = document.createElement("LI");
+		textNode = document.createTextNode(b);
+		//console.log(textNode);
+		newItem.appendChild(textNode);
+		a.insertBefore(newItem, a.childNodes[0]);
+		}
+}
+
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
