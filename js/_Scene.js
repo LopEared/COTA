@@ -11,7 +11,7 @@ scene.add(camera);									// Append camerea to scene
 var renderer = new THREE.WebGLRenderer( { canvas: Scene3D, antialias: true } );
 // Add controls
 var controls = new THREE.OrbitControls(camera, renderer.domElement);
-controls.maxDistance = 95000;						// Assign the upper limit of zooming 
+controls.maxDistance = 90000;						// Assign the upper limit of zooming 
 // Add Stats frame into Scale_container (if stats add to CanvasFrame - after scaling stats vanish from scene)
 var stats = new Stats();
 stats.domElement.style.cssText = 'position:absolute;bottom:4px;right:4px;';
@@ -44,7 +44,7 @@ function DelMesh( event ) {
 }
 function PaintMesh( event ) {
 	intersects[ 0 ].object.material.color.setHex( 0xff3333 );
-	console.log("Привет! Тут был клик")
+	console.log("Привет! Тут был клик");
 }
 Scene3D.addEventListener( 'mousemove', onMouseMove, false );				// Part of RayCaster: Check mouse move
 Scene3D.addEventListener( 'dblclick', DelMesh, false );						// Part of RayCaster: Check mouse dblclick
@@ -63,6 +63,7 @@ function animate() {
 		if (INTERSECTED != intersects[0].object) {
             if (INTERSECTED){
             	material = INTERSECTED.material;
+				console.log(material.color);
 	        	if(material.emissive){
 	                material.emissive.setHex(INTERSECTED.currentHex);
 	            }
@@ -80,8 +81,6 @@ function animate() {
 	         	INTERSECTED.currentHex = material.color.getHex();
 	            material.color.setHex(0xff0000);
 	        }
-            //console.log(INTERSECTED.position);
-			//console.log(intersects[0].object);
         }
     } 
 	else {
@@ -89,10 +88,10 @@ function animate() {
         	material = INTERSECTED.material;
 			if(material.emissive){
             	material.emissive.setHex(INTERSECTED.currentHex);
-        	}
+		    }
         	else{
         		material.color.setHex(INTERSECTED.currentHex);
-        	}
+		    }
         }
         INTERSECTED = null;
 		document.body.style.cursor = 'auto';								// Change style pointer cursor not hover on the mesh/object to standart view
@@ -119,6 +118,7 @@ function resizeCanvasToDisplaySize(force) {
 }
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //Append my personal functions
+//Function fo fast data log at right upper corner of scene
 function write_fastdata(a,b) {
 	if (a.childNodes.length >= 6) {
 		a.removeChild(a.childNodes[5]);
@@ -130,36 +130,4 @@ function write_fastdata(a,b) {
 		a.insertBefore(newItem, a.childNodes[0]);
 		}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
