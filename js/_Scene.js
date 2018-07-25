@@ -46,9 +46,13 @@ function PaintMesh( event ) {
 	intersects[ 0 ].object.material.color.setHex( 0xff3333 );
 	console.log("Привет! Тут был клик");
 }
+function ReturnMeshColor( event ) {
+	console.log("Привет! Тут был клик правой кнопкой");
+}
 Scene3D.addEventListener( 'mousemove', onMouseMove, false );				// Part of RayCaster: Check mouse move
 Scene3D.addEventListener( 'dblclick', DelMesh, false );						// Part of RayCaster: Check mouse dblclick
 Scene3D.addEventListener( 'click', PaintMesh, false );						// Part of RayCaster: Check mouse click
+Scene3D.addEventListener( 'contextmenu', ReturnMeshColor, false );				// Part of RayCaster: Check mouse RightClick
 //--------------------------------------------------------------------------------------------------------------------------------------------
 animate(); 																	// Main animation function
 //--------------------------------------------------------------------------------------------------------------------------------------------
