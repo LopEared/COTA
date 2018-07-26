@@ -55,7 +55,7 @@ function ReturnMeshColor( event ) {
 Scene3D.addEventListener( 'mousemove', onMouseMove, false );				// Part of RayCaster: Check mouse move
 Scene3D.addEventListener( 'dblclick', DelMesh, false );						// Part of RayCaster: Check mouse dblclick
 Scene3D.addEventListener( 'click', PaintMesh, false );						// Part of RayCaster: Check mouse click
-Scene3D.addEventListener( 'contextmenu', ReturnMeshColor, false );				// Part of RayCaster: Check mouse RightClick
+Scene3D.addEventListener( 'contextmenu', ReturnMeshColor, false );			// Part of RayCaster: Check mouse RightClick
 //--------------------------------------------------------------------------------------------------------------------------------------------
 animate(); 																	// Main animation function
 //--------------------------------------------------------------------------------------------------------------------------------------------
@@ -125,6 +125,7 @@ function resizeCanvasToDisplaySize(force) {
 }
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //Append my personal functions
+//--------------------------------------------------------------------------------------------------------------------------------------------
 //Function fo fast data log at right upper corner of scene
 function write_fastdata(a,b) {
 	if (textNode.textContent != b){
@@ -137,4 +138,7 @@ function write_fastdata(a,b) {
 		a.removeChild(a.childNodes[5]);
 		}
 }
+//--------------------------------------------------------------------------------------------------------------------------------------------
+// Timer Fast_Target_Inform logger cleaner 
+var timerId_1 = setInterval(function() { Fast_Target_Inform.removeChild(Fast_Target_Inform.childNodes[Fast_Target_Inform.childNodes.length - 1]); }, 1700);
 
