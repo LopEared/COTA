@@ -6,27 +6,27 @@
 	ground.rotation.x = -Math.PI / 2;
 	scene.add(ground);
 //	Add Earth (SphereGeometry)
-	var Earth = new THREE.Mesh(new THREE.SphereGeometry( 7000, 32, 32 ), new THREE.MeshBasicMaterial( {color: 0xffff00,side: THREE.DoubleSide} ));
+	var Earth = new THREE.Mesh(new THREE.SphereGeometry( 7000, 32, 32 ), new THREE.MeshLambertMaterial( {color: 0xffff00,side: THREE.DoubleSide} ));
 	Earth.position.set(35000, 0, 0);
 	Earth.receiveShadow = true;
 	scene.add( Earth );	
 //	Add Cube just for fun Cube
 	var geometry = new THREE.BoxGeometry( 3000, 3000, 3000 );
-	var material = new THREE.MeshBasicMaterial( { color: 0xcc0066 } );
+	var material = new THREE.MeshLambertMaterial( { color: 0xcc0066 } );
 	var cube = new THREE.Mesh( geometry, material );
 	cube.position.set(12000, -13500, 5000);
 	cube.receiveShadow = true;
 	scene.add( cube );
 //	Add Cube2 just for fun Cube
 	var geometry = new THREE.BoxGeometry( 5000, 5000, 5000 );
-	var material = new THREE.MeshBasicMaterial( { color: 0x00ccff } );
+	var material = new THREE.MeshLambertMaterial( { color: 0x00ccff } );
 	var cube2 = new THREE.Mesh( geometry, material );
 	cube2.position.set(-12000, -12300, -5000);
 	cube2.receiveShadow = true;
 	scene.add( cube2 );
 //	Add Cube3 just for fun Cube
 	var geometry = new THREE.BoxGeometry( 7000, 7000, 7000 );
-	var material = new THREE.MeshBasicMaterial( { color: 0xff33cc } );
+	var material = new THREE.MeshLambertMaterial( { color: 0xff33cc } );
 	var cube3 = new THREE.Mesh( geometry, material );
 	cube3.position.set(-17000, -12300, -50000);
 	cube3.receiveShadow = true;
@@ -42,7 +42,7 @@
 		object.traverse( function(child) {
 			if (child instanceof THREE.Mesh) {
 			  // apply custom material for each meshes in our model
-			  child.material = new THREE.MeshStandardMaterial({color: 0x00ff00, roughness: 0, metalness:0.4, fog:true, skinning:true});
+			  child.material = new THREE.MeshStandardMaterial({color: 0x00ff00, roughness: 0, metalness:0.4, fog:true, skinning:true, emissiveIntensity:0.8});
 			  // enable casting shadows
 			  child.castShadow = true;
 			  child.receiveShadow = true;

@@ -32,10 +32,10 @@
 	outline: none;
 	cursor: pointer;
 	padding: 2px 2px;
-	font-size: 0.8vw;
+	font-size: 1vw;
 	width: 50%;
 	border-radius: 10px 10px 0 0;
-	height:8%;
+	height:8.5%;
 }
 
 .tablink:hover {

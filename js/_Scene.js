@@ -44,7 +44,6 @@ function DelMesh( event ) {
 }
 function PaintMesh( event ) {
 	bufferColor = intersects[ 0 ].object.material.color.getHex();
-	//console.log(bufferColor);
 	intersects[ 0 ].object.material.color.setHex( 0xff3333 );
 	console.log("Привет! Тут был клик");
 }
@@ -66,12 +65,11 @@ function animate() {
 	intersects = raycaster.intersectObjects( scene.children, true );		// calculate objects intersecting the picking ray
 	if (intersects.length > 0) {											// Check intersections scene.children objects	
 		document.body.style.cursor = 'pointer';								// Change style pointer cursor hover on the mesh/object
-		write_fastdata(Fast_Target_Inform, intersects[0].object.name);
+		write_fastdata(Fast_Target_Inform, intersects[0].object.name + "   " +intersects[ 0 ].object.material.color.getHex());
 		if (INTERSECTED != intersects[0].object) {
             if (INTERSECTED){
             	material = INTERSECTED.material;
-				console.log(material.color);
-	        	if(material.emissive){
+				if(material.emissive){
 	                material.emissive.setHex(INTERSECTED.currentHex);
 	            }
 	            else{
@@ -82,11 +80,11 @@ function animate() {
             material = INTERSECTED.material;
             if(material.emissive){
 	         	INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
-	            material.emissive.setHex(0xff0000);
+	            material.emissive.setHex(0x93c588);
 	        }
 	        else{
 	         	INTERSECTED.currentHex = material.color.getHex();
-	            material.color.setHex(0xff0000);
+	            material.color.setHex(0x93c588);
 	        }
         }
     } 
