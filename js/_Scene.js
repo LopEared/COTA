@@ -78,7 +78,8 @@ function animate() {
 	        }	
             INTERSECTED = intersects[0].object;
             material = INTERSECTED.material;
-            if(material.emissive){
+            
+			if(material.emissive){
 	         	INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
 	            material.emissive.setHex(0x93c588);
 	        }
@@ -138,5 +139,6 @@ function write_fastdata(a,b) {
 }
 //--------------------------------------------------------------------------------------------------------------------------------------------
 // Timer Fast_Target_Inform logger cleaner 
-var timerId_1 = setInterval(function() { Fast_Target_Inform.removeChild(Fast_Target_Inform.childNodes[Fast_Target_Inform.childNodes.length - 1]); }, 1700);
+var timerId_1 = setInterval(function() {if(Fast_Target_Inform.childNodes.length > 0){Fast_Target_Inform.removeChild(Fast_Target_Inform.childNodes[Fast_Target_Inform.childNodes.length - 1]); }}, 1700);
+
 
