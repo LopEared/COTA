@@ -26,7 +26,7 @@
 	margin: 0px 0px 0px 0px;
 	position: absolute;
 	background: white;
-	height: 40%;
+	height: 15%;
 	width: 99.8%;
 	left: 0px;
 	bottom: 0.5px;
@@ -35,6 +35,20 @@
 	font: bold 0.75vw sans-serif;
 	color:  solid black;
 }
+#FrameNameInput{
+	position:absolute;
+	height: 25%;
+	width: 97%;
+	left: 0.5%;
+	top: 5px;
+}
+#EnterName{
+	
+}
+#ClearName{
+	
+}
+
 /*
 #PlaceTextFrame_input{
 	height: 40%;

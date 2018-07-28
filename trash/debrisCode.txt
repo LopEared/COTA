@@ -1,1 +1,143 @@
 MeshBasicMaterial
+
+
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<title>СОТА</title>
+		<meta charset="utf-8">
+		<link rel="icon" type="image/x-icon" href="https://rawgit.com/LopEared/COTA/master/img/ico/3.png">				<!-- Установка иконки на вкладку в браузере -->
+		<link rel="stylesheet" type="text/css" href="https://rawgit.com/LopEared/COTA/master/css/_MainFrame.css">		<!-- Подключаем CSS-стили для страницы -->
+		<link rel="stylesheet" type="text/css" href="https://rawgit.com/LopEared/COTA/master/css/_Scene.css">			<!-- Подключаем CSS-стили для сцены -->
+		<link rel="stylesheet" type="text/css" href="https://rawgit.com/LopEared/COTA/master/css/loading-bar.css"> 		<!-- Подключаем CSS-стили для окна уведомоения о проценте загрузки моделей сцены -->
+		<link rel="stylesheet" type="text/css" href="https://rawgit.com/LopEared/COTA/master/css/_ControlBar.css"> 		<!-- Подключаем CSS-стили для окна контроля сценой и его содержимого -->
+		<link rel="stylesheet" type="text/css" href="https://rawgit.com/LopEared/COTA/master/css/_InformlBar.css"> 		<!-- Подключаем CSS-стили для окна информации со сцены и его содержимого -->
+		<link rel="stylesheet" type="text/css" href="https://rawgit.com/LopEared/COTA/master/css/_HeaderBar.css"> 		<!-- Подключаем CSS-стили для заголовка и его содержимого -->	
+		<link rel="stylesheet" type="text/css" href="https://rawgit.com/LopEared/COTA/master/css/_NaviBar.css"> 		<!-- Подключаем CSS-стили для навигационной полосы и еe содержимого -->	
+		<link rel="stylesheet" type="text/css" href="https://rawgit.com/LopEared/COTA/master/css/_Watch.css"> 			<!-- Подключаем CSS-стили для часов и их стилизаций -->	
+		
+		<!-- Подключаем библиотеки JS,ThreeJS и др. -->
+		<script src="https://rawgit.com/LopEared/COTA/master/js/three.min.js" defer></script>			<!-- <Библиотека ThreeJS -->
+		<script src="https://rawgit.com/LopEared/COTA/master/js/OrbitControls.js" defer></script>		<!-- <Библиотека контроля вращения камеры -->
+		<script src="https://rawgit.com/LopEared/COTA/master/js/OBJLoader.js" defer></script>			<!-- <Библиотека загрузчик формата OBJ -->
+		<script src="https://rawgit.com/LopEared/COTA/master/js/stats.min.js" defer></script>			<!-- <Библиотека счетчика производительности изображения -->
+		<script src="https://rawgit.com/LopEared/COTA/master/js/loading-bar.min.js" defer></script>	<!-- <Библиотека загрузочного бара -->
+		
+		<!-- Вставляем здесь все скрипты для канваса и для отрисовки всей сцены (важно соблюдать последовательность вставки скриптов)-->
+		<script src="https://rawgit.com/LopEared/COTA/master/js/_Scene.js" defer></script>			<!-- Здесь вставляем скрипт нашей 3д сцены -->
+		<script src="https://rawgit.com/LopEared/COTA/master/js/_Objects.js" defer></script>		<!-- Здесь вставляем скрипт обьектов нашей 3д сцены -->
+		<script src="https://rawgit.com/LopEared/COTA/master/js/_ButtonAction.js" defer></script>	<!-- Здесь вставляем скрипты кнопок управления нашей 3д сценой -->
+		<script src="https://rawgit.com/LopEared/COTA/master/js/_Watch.js" defer></script>			<!-- Здесь вставляем скрипт часов необходимого формата: UTC & BLT -->
+		<script src="https://rawgit.com/LopEared/COTA/master/js/_ControlBar.js" defer></script>		<!-- Здесь вставляем скрипты отвечающие за ControlBar -->
+	</head>
+
+	<body onload="startTime()"> <!-- Здесь запускаем часы вызовом функции в необходимых форматах: UTC & BLT -->
+		<header>
+			<span id="Caption"> Система Обьектного Телеметрического Анализа <br> 
+								 софт ЦУП: НДС ТР; АДС; ОДС 
+			</span>			 
+		</header>
+		
+		<nav>
+			<!-- Вставляем часы с временем формата UTC и Local_Time-->
+			<div id="WatchBox"> 
+				<table id="watch_table">
+					<tr title="Universal Time">	<td>UTC</td> <td id="u_date"></td> 	<td id="u_time"></td>	<td id="u_date_n"></td>		</tr>
+					<tr title="Local Time"> 	<td>BLT</td> <td id="bl_date"></td> <td id="bl_time"></td>	<td id="bl_date_n"></td>	</tr>
+				</table>
+			</div>
+			<!-- Вставляем  контейнер текущего события по расписанию смены-->
+			<div id="ShiftScheduleEvent">Текущее предстоящее событие на смене</div>
+			<!-- Вставляем счетчик дней полета КА-->
+			<div id="FlyDayBox">
+				<table id="FlyDayTable">
+					<tr> <td id="CountDay_NaviBar"></td>	</tr>
+					<tr> <td id="TimeCountDay"></td>		</tr>
+				</table>
+			</div>
+		</nav>
+		
+		<main>
+			<!-- Вставляем здесь контейнер для отображения и управления сценой -->
+			<section id="Control_Bar">
+				<!-- Вставляем здесь контейнер для отображения и управления сменой -->
+				<div id="ShiftSchedule_Box">
+					<button class="tablink" onclick="openPage('ShiftStaff_tab', this, 'red')"  id="defaultOpen">Смена</button>
+					<button class="tablink" onclick="openPage('NextShiftStaff_tab', this, 'green')">Расписание</button>
+					<!-- Текущая смена и расписание на сутки отображается на этой влкдаке -->	
+					<div id="ShiftStaff_tab" class="tabcontent">
+						<div id="Staff_Table_Box">
+							<table id="Staff_Table">
+								<tr>	<td id="TabDay"></td>	<td>День</td>			<td>Ночь</td>			</tr>	<!-- 1 -->
+								<tr>	<td>ТР НДС</td>			<td id="d_NDS"></td>	<td id="n_NDS"></td>	</tr>	<!-- 2 -->
+								<tr>	<td>АДС</td>			<td id="d_ADS"></td>	<td id="n_ADS"></td>	</tr>	<!-- 3 -->
+								<tr>	<td>ОДС</td>			<td id="d_ODS"></td>	<td id="n_ODS"></td>	</tr>	<!-- 4 -->
+								<tr>	<td>ДИ МПН</td>			<td id="d_MPN"></td>	<td id="n_MPN"></td>	</tr>	<!-- 5 -->
+							</table>
+						</div>
+					</div>
+
+					<div id="NextShiftStaff_tab" class="tabcontent">
+						<p>Сдесь будет отображаться поля для составления расписания.</p>
+					</div>
+				</div>
+				
+				<div id="Scene_Control">	
+					Контрольная обасть управления сценой
+					<div id="PlaceTextFrame">	
+						<p>Ввод описания мешей модели </p>
+						<form action="">
+						Введите название блока:<br>
+						<input type="text" name="PlaceTextFrame_input" value="Название блока" onfocus="myFunction(this)">
+						<br>
+						<input type="submit" value="Ввод">
+						</form> 
+					</div>
+				</div>
+			</section>
+			
+			<section id="CanvasFrame">
+				<!-- Вставляем здесь контейнер для масштабирования сцены на весь экран -->
+				<div id="Scale_container"> 
+					<!-- Вставляем здесь свой канвас для отрисовки сцены -->
+					<canvas id="Scene3D" >	</canvas>
+					<!-- Вставляем здесь свои кнопки управления сценой и внешним видом -->
+					<div id="ButtonsBar">
+						<!-- Делаем ButtonBar -->
+						<button id="FullDisplay"	class="SceneButton"	title="FullDisplay mode"	onclick="FullDisplay()"> </button>
+						<button id="Maximize"		class="SceneButton"	title="Maximize screen"		onclick="MaxScreen()"> </button>
+						<button id="StartView"		class="SceneButton"	title="Default position"	onclick="DefaultPosition()"> </button>
+					</div>
+					<!-- Вставляем здесь свой загрузочный бар -->
+					<div id="Frame_LoadBar">
+						<div  class="ldBar label-center" id="LoadBar" data-value="0" data-preset="circle" data-stroke="red" data-stroke-width="10"  data-stroke-trail="gray" data-stroke-trail-width="10" ></div>
+					</div>
+					<!-- Вставляем здесь часы с отображением в полноэкранном режиме с временем формата UTC и Local_Time и счетчиком дней полета КА в последней строке-->
+					<div id="WatchBoxScene"> 
+						<table id="watch_table_scene">
+							<tr title="Universal Time">	<td>UTC</td> <td id="su_date"></td>		<td id="su_time">	</td> <td id="su_date_n"></td>	</tr>
+							<tr title="Local Time">		<td>BLT</td> <td id="sbl_date"></td>	<td id="sbl_time">	</td> <td id="sbl_date_n"></td>	</tr>
+							<tr title="Day From Start"> <td colspan="4" align="center" id="CountDay_Scene"></td>	</tr>
+						</table>
+					</div>
+					<!-- Вставляем здесь часы с отображением в полноэкранном режиме с временем формата UTC и Local_Time и счетчиком дней полета КА в последней строке-->
+					<div id="Fast_Target_Inform">	</div>
+				</div>
+			</section>
+			
+			<section id="Information_Bar">
+				Информация по элементам на сцене
+				<div id="BoxFullInformation">
+					<div id="HeaderInformBar"> Описание </div>
+					<form id="">
+						<textarea id="FullObjectInformation" readonly> Здесь более развернуто изложена информация об обьектах или подсистеме. </textarea>
+					</form>
+				</div>
+			</section>
+		</main>
+				
+		<footer>
+			Нижняя колонка с краткой информацией: Ссылками на авторов и прочей дополнительой справочной информацией.
+		</footer>
+	</body>
+</html>
