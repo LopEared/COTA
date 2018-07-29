@@ -44,6 +44,7 @@
 	width: 97%;
 	left: 1px;
 	top: 3px;
+	font: 1.1vw sans-serif;
 }
 #EnterName{
 	position:absolute;
@@ -51,6 +52,7 @@
 	width: 49.5%;
 	left: 1px;
 	bottom: 1px;
+	font: 0.9vw sans-serif;
 }
 #ClearName{
 	position:absolute;
@@ -58,6 +60,7 @@
 	width: 49.5%;
 	right: 1px;
 	bottom: 1px;
+	font: 0.9vw sans-serif;
 }
 
 /*
