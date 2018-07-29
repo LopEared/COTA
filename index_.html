@@ -80,12 +80,13 @@
 				</div>
 				
 				<div id="Scene_Control">	
-					Контрольная обасть управления сценой
+					Контрольная обасть управления сценой <br>
+					Цвет маркера:<input type="color" value="#ff0000" id="colorPicker" oninput="changeColorMarker()">
 					<div id="PlaceTextFrame">	
 						<form action="">
-							<input type="text" name="Name_input" id="FrameNameInput" value="Введите имя блока КА " onfocus="myFunction(this)"><br>
+							<input type="text" id="FrameNameInput" value="" placeholder="Введите имя блока КА"><br>
 							<input id="EnterName" type="submit" value="Ввод">
-							<input id="ClearName" type="submit" value="Очистить">
+							<input id="ClearName" type="reset" value="Очистить">
 						</form> 
 					</div>
 				</div>

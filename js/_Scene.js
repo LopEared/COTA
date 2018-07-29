@@ -32,7 +32,7 @@ camera.add(directionalLight);		// Fix direction ligth from camera to objectsd
 // Add RayCaster variables
 var raycaster = new THREE.Raycaster();
 var mouse = new THREE.Vector2();
-var intersects, INTERSECTED, newItem, textNode=0, bufferColor;
+var intersects, INTERSECTED, newItem, textNode=0, bufferColor, markColor;
 // Add RayCaster function
 function onMouseMove( event ) {
 	mouse.x = ( event.offsetX / Scene3D.clientWidth ) * 2 - 1;				// calculate mouse position in normalized device coordinates
@@ -44,7 +44,7 @@ function DelMesh( event ) {
 }
 function PaintMesh( event ) {
 	bufferColor = intersects[ 0 ].object.material.color.getHex();
-	intersects[ 0 ].object.material.color.setHex( 0xff3333 );
+	intersects[ 0 ].object.material.color.setHex( markColor );
 	console.log("Привет! Тут был клик");
 }
 function ReturnMeshColor( event ) {
@@ -139,6 +139,11 @@ function write_fastdata(a,b) {
 }
 //--------------------------------------------------------------------------------------------------------------------------------------------
 // Timer Fast_Target_Inform logger cleaner 
-var timerId_1 = setInterval(function() {if(Fast_Target_Inform.childNodes.length > 0){Fast_Target_Inform.removeChild(Fast_Target_Inform.childNodes[Fast_Target_Inform.childNodes.length - 1]); }}, 1700);
+setInterval(function() {if(Fast_Target_Inform.childNodes.length > 0){Fast_Target_Inform.removeChild(Fast_Target_Inform.childNodes[Fast_Target_Inform.childNodes.length - 1]); }}, 1700);
+
+function changeColorMarker(){
+	markColor = document.getElementById('colorPicker').value.replace("#",'0x');
+}
+
 
 

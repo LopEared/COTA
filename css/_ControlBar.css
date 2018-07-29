@@ -21,6 +21,9 @@
 	border: 2px solid lightgrey;
 	border-radius:3px;
 }
+#colorPicker{
+	width:30%;
+}
 /*Define style of input frame*/
 #PlaceTextFrame{
 	margin: 0px 0px 0px 0px;
@@ -37,16 +40,24 @@
 }
 #FrameNameInput{
 	position:absolute;
-	height: 25%;
+	height: 30%;
 	width: 97%;
-	left: 0.5%;
-	top: 5px;
+	left: 1px;
+	top: 3px;
 }
 #EnterName{
-	
+	position:absolute;
+	height: 42%;
+	width: 49.5%;
+	left: 1px;
+	bottom: 1px;
 }
 #ClearName{
-	
+	position:absolute;
+	height: 42%;
+	width: 49.5%;
+	right: 1px;
+	bottom: 1px;
 }
 
 /*
