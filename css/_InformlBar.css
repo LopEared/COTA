@@ -1,19 +1,37 @@
-
+#variableHeader_InformBar{
+	background: transparent;
+	position: absolute;
+	width: 99%;
+	height: 15%;
+	left: 1px;
+	top: 7%;
+}
 #BoxFullInformation{
+	background: transparent;
 	position: absolute;
 	width: 100%;
 	height: 78%;
-	left: 0.5px;
-	bottom: 0.5px;
+	left: 1px;
+	bottom: 1px;
 	border-radius:4px;
-	background:green;
+}
+
+#HeaderInformBar{
+	top: 0px;
+	left: 0px;
+	width:100%;
+	height:;
+	padding: 2px;
+	font: 1vw sans-serif;
+	color: white;
 }
 
 #FullObjectInformation{
 	position: absolute;
 	width: 97%;
-	height: 94%;
+	height: 95%;
 	left: 0px;
 	bottom: 0px;
 	border-radius:4px;
 }
+

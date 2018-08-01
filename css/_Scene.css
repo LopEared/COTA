@@ -1,11 +1,11 @@
 canvas{
 	width: 100%;
-	height: 100%;
-	border-radius: 5px;
+	height: 98%;
+	border-radius:0 0 5px 5px;
 }
 
 #ButtonsBar{
-	top: 4px;
+	top: 3%;
 	right: 4px;
 	position: absolute;
 	background: transparent;
@@ -62,8 +62,8 @@ canvas{
 	width: 100%;
 	height: 100%;
 	position: absolute;
-	left: 0;
-	top: 0;
+	left: 0px;
+	bottom: 0px;
 }
 
 #Frame_LoadBar{
@@ -89,9 +89,26 @@ canvas{
 	width: 18%;
 	height: 18%;
 	left: 5px;
-	top: 5px;
+	top: 2.3%;
 	border: 1px transparent;
 	font: bold 0.85vw sans-serif;
 	color:  #00ff00;
 }
 
+.Button_Control_Layot{
+	background-color: #555;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font: bold 0.65vw sans-serif;
+    color: white;
+	width: 33.33%;
+	height: 2%;
+	border-radius: 5px 5px 0 0;
+}
+/*
+.Button_Control_Layot:hover {
+    background-color: #777;
+}
+*/

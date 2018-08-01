@@ -23,3 +23,4 @@ https://rawgit.com/LopEared/COTA/master/js/OBJLoader.js
 https://rawgit.com/LopEared/COTA/master/models/MotorCycle.obj
 
 29.07.2018_
+01.08.2018_1

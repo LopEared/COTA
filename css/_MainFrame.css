@@ -58,7 +58,8 @@ font-size: 1vw;
 
 #CanvasFrame{
 position:relative;
-background: LawnGreen;
+background: gainsboro;
+/*background: LawnGreen;*/
 width: 74%;
 border-radius: 5px;
 margin: 0px 2px 0px 2px;
@@ -66,12 +67,14 @@ margin: 0px 2px 0px 2px;
 
 #Information_Bar{
 position:relative;
+padding: 2px;
 background: RoyalBlue;
 float: right;
 width: 13%;
 border-radius: 5px;
 margin: 0px;
 font-size: 1vw;
+color:white;
 }
 
 footer{

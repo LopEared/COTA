@@ -32,7 +32,7 @@ camera.add(directionalLight);		// Fix direction ligth from camera to objectsd
 // Add RayCaster variables
 var raycaster = new THREE.Raycaster();
 var mouse = new THREE.Vector2();
-var intersects, INTERSECTED, newItem, textNode=0, bufferColor, markColor;
+var intersects, INTERSECTED, newItem, textNode= 0 , bufferColor, markColor = 0x00ffff;
 // Add RayCaster function
 function onMouseMove( event ) {
 	mouse.x = ( event.offsetX / Scene3D.clientWidth ) * 2 - 1;				// calculate mouse position in normalized device coordinates
@@ -123,6 +123,19 @@ function resizeCanvasToDisplaySize(force) {
 	}
 }
 //--------------------------------------------------------------------------------------------------------------------------------------------
+// Layot tabs control functions Belintersat-1/SolarSystem/GCS
+//--------------------------------------------------------------------------------------------------------------------------------------------
+function SelectScene(elmnt) {
+	var i, tablinks;
+	tablinks = document.getElementsByClassName("Button_Control_Layot");
+    for (i = 0; i < tablinks.length; i++) { tablinks[i].style.backgroundColor = ""; }
+	elmnt.style.backgroundColor = "#3333ff";
+	variableHeader_InformBar.innerHTML = elmnt.value;
+}
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpenLayot").click();
+
+//--------------------------------------------------------------------------------------------------------------------------------------------
 //Append my personal functions
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //Function fo fast data log at right upper corner of scene
@@ -140,10 +153,11 @@ function write_fastdata(a,b) {
 //--------------------------------------------------------------------------------------------------------------------------------------------
 // Timer Fast_Target_Inform logger cleaner 
 setInterval(function() {if(Fast_Target_Inform.childNodes.length > 0){Fast_Target_Inform.removeChild(Fast_Target_Inform.childNodes[Fast_Target_Inform.childNodes.length - 1]); }}, 1700);
-
+// Function changing color of paint cursos
 function changeColorMarker(){
 	markColor = document.getElementById('colorPicker').value.replace("#",'0x');
 }
-
-
-
+// Function changing brightness of Light from camera
+function changeBrightness(){
+	light.intensity = document.getElementById('Brightness_of_illumination').value;
+}
