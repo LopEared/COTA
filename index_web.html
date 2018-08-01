@@ -81,7 +81,8 @@
 				
 				<div id="Scene_Control">	
 					Контрольная обасть управления сценой <br>
-					Цвет маркера:<input type="color" value="#93c588" id="colorPicker" oninput="changeColorMarker()">
+					Цвет маркера:<input type="color" value="#00ffff" id="colorPicker" oninput="changeColorMarker()">
+					Освещение: 	<input type="range" id="Brightness_of_illumination" min="0" max="3" step="0.1" value="1.5" oninput="changeBrightness()">	
 					<div id="PlaceTextFrame">	
 						<form action="">
 							<input type="text" id="FrameNameInput" value="" placeholder="Введите имя блока КА"><br>
@@ -94,7 +95,11 @@
 			
 			<section id="CanvasFrame">
 				<!-- Вставляем здесь контейнер для масштабирования сцены на весь экран -->
-				<div id="Scale_container"> 
+				<div id="Scale_container">
+					<!-- Вставляем здесь кнопки выбора сцен: Bel-1, SolSys, GCS -->
+					<button class="Button_Control_Layot" onclick="SelectScene(this)" id="defaultOpenLayot" value="Белинтерсат-1">Белинтерсат-1</button>
+					<button class="Button_Control_Layot" onclick="SelectScene(this)" value="Солнечная система и КА">Солнечная система и КА</button>
+					<button class="Button_Control_Layot" onclick="SelectScene(this)" value="Наземный комплекс управления">Наземный комплекс управления</button>							
 					<!-- Вставляем здесь свой канвас для отрисовки сцены -->
 					<canvas id="Scene3D" >	</canvas>
 					<!-- Вставляем здесь свои кнопки управления сценой и внешним видом -->
@@ -116,15 +121,16 @@
 							<tr title="Day From Start"> <td colspan="4" align="center" id="CountDay_Scene"></td>	</tr>
 						</table>
 					</div>
-					<!-- Вставляем здесь часы с отображением в полноэкранном режиме с временем формата UTC и Local_Time и счетчиком дней полета КА в последней строке-->
-					<div id="Fast_Target_Inform">	</div>
+					<!-- Вставляем здесь прозрачный бар с выводом кратких названий обьектов на которые наведен курсор-->
+					<div id="Fast_Target_Inform"> </div>
 				</div>
 			</section>
 			
 			<section id="Information_Bar">
-				Информация по элементам на сцене
+				Информация по элементам на сцене <br>
+				<div id="variableHeader_InformBar">Превед!</div>
 				<div id="BoxFullInformation">
-					<div id="HeaderInformBar"> Описание </div>
+					<div id="HeaderInformBar"> Описание: </div>
 					<form id="">
 						<textarea id="FullObjectInformation" readonly> Здесь более развернуто изложена информация об обьектах или подсистеме. </textarea>
 					</form>
@@ -133,7 +139,7 @@
 		</main>
 				
 		<footer>
-			Нижняя колонка с краткой информацией: Ссылками на авторов и прочей дополнительой справочной информацией.
+			Нижняя колонка с краткой информацией: Ссылками на авторов и прочей дополнительой справочной информацией: телефоны сотрудников,отделов, служб; быстрые ссылки на ключевые документы и формы для печати.
 		</footer>
 	</body>
 </html>
