@@ -102,7 +102,6 @@ function animate() {
         INTERSECTED = null;
 		document.body.style.cursor = 'auto';								// Change style pointer cursor not hover on the mesh/object to standart view
 	}
-	
 	//----------------------------------------------------------------------------------------------------------------------------------------
 	resizeCanvasToDisplaySize();
 	requestAnimationFrame(animate);
@@ -132,9 +131,8 @@ function SelectScene(elmnt) {
 	elmnt.style.backgroundColor = "#3333ff";
 	variableHeader_InformBar.innerHTML = elmnt.value;
 }
-// Get the element with id="defaultOpen" and click on it
+// Get the element with id="defaultOpen" and click on it /Secelct scene by id
 document.getElementById("defaultOpenLayot").click();
-
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //Append my personal functions
 //--------------------------------------------------------------------------------------------------------------------------------------------
@@ -160,4 +158,8 @@ function changeColorMarker(){
 // Function changing brightness of Light from camera
 function changeBrightness(){
 	light.intensity = document.getElementById('Brightness_of_illumination').value;
+}
+// Function changing brightness of CameraLight
+function changeEmissive(){
+	directionalLight.intensity = document.getElementById('Brightness_of_CameraLight').value;
 }

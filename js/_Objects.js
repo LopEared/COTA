@@ -6,7 +6,7 @@
 	ground.rotation.x = -Math.PI / 2;
 	scene.add(ground);
 //	Add Earth (SphereGeometry)
-	var Earth = new THREE.Mesh(new THREE.SphereGeometry( 7000, 32, 32 ), new THREE.MeshLambertMaterial( {color: 0xffff00,side: THREE.DoubleSide} ));
+	var Earth = new THREE.Mesh(new THREE.SphereGeometry( 7000, 32, 32 ), new THREE.MeshLambertMaterial( {color: 0xffff00, side: THREE.FrontSide } ));
 	Earth.position.set(35000, 0, 0);
 	Earth.receiveShadow = true;
 	scene.add( Earth );	
@@ -30,6 +30,7 @@
 	var cube3 = new THREE.Mesh( geometry, material );
 	cube3.position.set(-17000, -12300, -50000);
 	cube3.receiveShadow = true;
+	cube3.castShadow = true;
 	scene.add( cube3 );
 	
 // Add satellite model
@@ -64,6 +65,7 @@
 		console.log( xhr.loaded / xhr.total * 100 + '% loaded' );
 		var bar = document.getElementById('LoadBar').ldBar;
 		bar.set(xhr.loaded / xhr.total * 100);
+		console.log( xhr.loaded  + 'loaded'+ ' '+xhr.total + 'total' );
 		},
 	// called when loading has errors
 	function ( error ) {
