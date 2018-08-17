@@ -46,6 +46,8 @@ function PaintMesh( event ) {
 	bufferColor = intersects[ 0 ].object.material.color.getHex();
 	intersects[ 0 ].object.material.color.setHex( markColor );
 	console.log("Привет! Тут был клик");
+	console.log(intersects[0]);
+	console.log(intersects[0].object.uuid);
 }
 function ReturnMeshColor( event ) {
 	intersects[ 0 ].object.material.color.setHex( bufferColor );

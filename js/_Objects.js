@@ -58,7 +58,7 @@
 	sat.rotation.y = Math.PI / 2 ;	
 	scene.add(sat);
 	Frame_LoadBar.style.visibility="hidden"; // Turn off progress bar after loading model
-	//console.log( sat.children );
+	console.log( Object.keys(sat) );
 	}, 
 	// Called during  while loader function load 3d-file/write % of loaded
 	function ( xhr ) {
