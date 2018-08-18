@@ -59,6 +59,7 @@
 	scene.add(sat);
 	Frame_LoadBar.style.visibility="hidden"; // Turn off progress bar after loading model
 	console.log( Object.keys(sat) );
+	console.log( sat.children );
 	}, 
 	// Called during  while loader function load 3d-file/write % of loaded
 	function ( xhr ) {
@@ -73,5 +74,3 @@
 		alert( "Привет, приехали. Запускайте с сервера" );
 		}
 	);
-
-	
