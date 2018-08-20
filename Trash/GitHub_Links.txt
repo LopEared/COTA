@@ -21,6 +21,10 @@ https://rawgit.com/LopEared/COTA/master/js/OBJLoader.js
 
 
 https://rawgit.com/LopEared/COTA/master/models/MotorCycle.obj
+http://learningthreejs.com/blog/2015/07/17/learningthree-dot-js-news-number-9-stay-tuned-with-creative-3d-demos/
+http://stuffin.space/?intldes=1965-078A
+https://www.space-track.org/auth/login
+http://longhornracingelectric.org/
 
 29.07.2018_
 01.08.2018_3
